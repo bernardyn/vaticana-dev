@@ -6,6 +6,7 @@
    <teiHeader xml:lang="en">
       <fileDesc>
          <titleStmt>
+            <!--w nawiasach proszę wstawiać nazwy zmiennych jakie mają pochodzić z automatów-->
             <title>{id_dokumentu}</title>
             <!--to będzie zmienione, ale na razie styl: "ID"-->
             <author>Monumenta Vaticana</author>
