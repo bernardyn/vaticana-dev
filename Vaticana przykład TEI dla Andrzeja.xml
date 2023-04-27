@@ -6,7 +6,7 @@
    <teiHeader xml:lang="en">
       <fileDesc>
          <titleStmt>
-            <!--w nawiasach proszę wstawiać nazwy zmiennych jakie mają pochodzić z automatów-->
+            <!--to jednak nie ma sensu-->
             <title>{id_dokumentu}</title>
             <!--to będzie zmienione, ale na razie styl: "ID"-->
             <author>Monumenta Vaticana</author>
@@ -16,7 +16,7 @@
             <edition>Wersja cyfrowa tekstu</edition> 
          </editionStmt>
          <publicationStmt>
-            <!-- część stała (cały znacznik) -->
+         <!--to jednak nie ma sensu-->
             <publisher>Centrum Studiów Mediewistycznych</publisher>
             <pubPlace>
                <placeName>Lublin</placeName>
