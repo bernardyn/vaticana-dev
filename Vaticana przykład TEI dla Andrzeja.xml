@@ -7,7 +7,7 @@
       <fileDesc>
          <titleStmt>
             <!--to jednak nie ma sensu-->
-            <title>{id_dokumentu}</title>
+            <title>{id_dokumentu1}</title>
             <!--to będzie zmienione, ale na razie styl: "ID"-->
             <author>Monumenta Vaticana</author>
             <!-- to jest część stała (treść części stałych na pewno się zmieni, więc na razie nie zaprzątaj sobie tym głowy) -->
