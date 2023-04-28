@@ -75,7 +75,7 @@
          <creation>
             <date when="1394-02-24">24 februarii 1394</date>
             <!-- styl: <date> Dobrze by było zautomatyzować przetworzenie z formy tekstowej do formy cyfrowej daty. Jak sadzę to nie powinno być trudne. -->
-            <placeName ana="Rzym">Roma</placeName>
+            <placeName ana="Rzym">{place}</placeName>
             <!-- styl: <placeName> w tym przypadku należy zostawić wartość w @ana="pustą" - ale można wstawić atrybut -->
          </creation>
       </profileDesc>
