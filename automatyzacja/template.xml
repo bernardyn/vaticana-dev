@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!--<TEI xmlns="http://www.tei-c.org/ns/1.0">-->
+<TEI>
+   <teiHeader xml:lang="en">
+      <fileDesc>
+         <titleStmt>
+            <!--jednak to ma sens-->
+            <title>id_dokumentu</title>
+            <!--to będzie zmienione, ale na razie styl: "ID"-->
+            <author>Monumenta Vaticana</author>
+            <!-- to jest część stała (treść części stałych na pewno się zmieni, więc na razie nie zaprzątaj sobie tym głowy) -->
+         </titleStmt>
+         <editionStmt><!-- część stała-->
+            <edition>Wersja cyfrowa tekstu</edition> 
+         </editionStmt>
+         <publicationStmt>
+         <!--to jednak nie ma sensu-->
+            <publisher>Centrum Studiów Mediewistycznych</publisher>
+            <pubPlace>
+               <placeName>Lublin</placeName>
+            </pubPlace>
+            <date/>
+            <availability status="free">
+               <licence>CC BY-NC-ND </licence>
+            </availability>
+         </publicationStmt>
+         <seriesStmt><!-- część stała -->
+            
+            <title>Monumenta Vaticana res gestes Polonicas Illustrantia</title>
+         </seriesStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <institution>AAV</institution>
+                  <msName><!-- styl: źrodło, na razie - tu będą zmiany -->
+                  </msName>               
+               </msIdentifier>
+               <msContents>
+                  <!-- to na razie pomińmy, bo to jest troche bardziej skomplikowane. Zostawmy sobie to na drugą iterację, tu będzie wyciaganie regexami z metryczki -->
+                  <msItem class="kopia bulli">
+                     <locus scheme="#f.now.">f. 31v-35r</locus>
+                     <locus scheme="#f.or.">XXIv-XXXVr</locus>
+                     <rubric>De beneficiis vacantibus</rubric>
+                     <bibl type="edycja">Thainer, Vetera Monumenta Poloniae et Lithuaniae gentiumque
+                        finitimarum historiam illustrantia, vol. 1, Roma 1860, nr 199</bibl>
+                     <bibl type="regest">Kuraś, Bullarium Poloniae, vol. 3, nr 115</bibl>
+                     <bibl type="regest">Repertorium Germanicum, vol. 4, nr 1150</bibl>
+                     <note> </note>
+                  </msItem>
+               </msContents>
+            </msDesc>
+
+            <listPerson>
+               <!-- część stała, pusta -->
+               <person/>
+            </listPerson>
+         </sourceDesc>
+
+      </fileDesc>
+      <profileDesc>
+         <abstract>
+            <!-- styl:<abstract> -->
+         </abstract>
+         <textClass/>
+         <!-- część stała -->
+         <creation>
+            <date when="1394-02-24">24 februarii 1394 test</date>
+            <!-- styl: <date> Dobrze by było zautomatyzować przetworzenie z formy tekstowej do formy cyfrowej daty. Jak sadzę to nie powinno być trudne. -->
+            <placeName>{place}</placeName>
+            <!-- styl: <placeName> w tym przypadku należy zostawić wartość w @ana="pustą" - ale można wstawić atrybut -->
+         </creation>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <!-- tutaj trzeba oddać znacznikami nieustandaryzowanymi formatowanie tekstu i takze przypisy. Problem jest taki, że MDK konsekwentnie nie wykorzystywa "stylów", więc trzeba wymyślić, jak wyciągnąć, formatowanie bez stylów (jeśli coś jest kursywą, to w stylach jest to jako tekst normalny - chociaż w formatowaniu jest kursywa, albo pomniejszenie). To jest bardzo ważne. NIE MOŻEMY ZGUBIĆ FORMATOWANIA!!!Tzn. tam gdzie jest kursywa w docx powinien być zaznaczony tag <kursywa>, przypisy można dać w miejscu, gdzie występiuja w tekście w znaczniku <przypis>. Jeśli by się tego nie dało, to można je też dać na końcu, ale wolałbym mieć w miejscu, gdzie występują. -->
+      <body>
+         {body_content}
+      </body>
+   </text>
+</TEI>
