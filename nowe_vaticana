@@ -58,7 +58,7 @@
      
      
                <msContents>
-                  <msItem class="kopia bulli">
+                  <msItem class="kopia_bulli">
                      <!-- warto zrobić taksonomię <classDecl><taxonomy><category><catDecl>, byc może w ogóle osobny plik z taksonomią rodzajów źródel -->
                      <locus scheme="#f.now.">f. 31v-35r</locus>
                      <locus scheme="#f.or.">XXIv-XXXVr</locus>
@@ -88,9 +88,9 @@
 
             <listPerson>
                <person xml:id="Bonifacy_9">
-                  <persName><name>Bonifacy IX</name>
+                  <persName><name>Bonifacy IX</name></persName>
                      <roleName>papież</roleName>
-                  </persName>
+                  
                </person>
                <person xml:id="ep.Monopolitano">
                   <persName><roleName>episcopo monopolitano</roleName></persName>
@@ -129,7 +129,7 @@
          <!-- Doczytać na temat sposobu tworzenia klas tekstu Guidlines 2.4.3 . Tutaj może być wręcz "prowizja na beneficjum -->
          <creation>
             <date when="1394-02-24">24 februarii 1394</date>
-            <placeName ana="Rzym">Roma</placeName>
+            <placeName ref="#Rzym">Roma</placeName>
             <!-- tutaj możnaby nawet bardziej dokładnie odesłać do "apud Sanctum Petrum - ale może nie warto?) -->
          </creation>
       </profileDesc>
@@ -139,32 +139,32 @@
          <p>
             <persName ref="#Bonifacy_9">Bonifacius</persName> etc. Venerabili fratri . . <persName
                ref="#ep.Monopolitano">episcopo Monopolitano</persName> et dilectis filiis
-               <persName>preposito <orgName ref="kapituła św. Idziego we Wrocławiu">sancti Egidii <!-- pytanie jak anotować wezwania kościołów i świeta kościelne -->
-                  <placeName ref="Wrocław">Wratislaviensis</placeName></orgName></persName>
+               <persName>preposito <orgName ref="#kapituła_św._Idziego_we_Wrocławiu">sancti Egidii <!-- pytanie jak anotować wezwania kościołów i świeta kościelne -->
+                  <placeName ref="#Wrocław">Wratislaviensis</placeName></orgName></persName>
             <!-- pytanie gdzie będzie informacja o diecezji wrocławskiej i jakim tagiem to opisać np. <orgName type="diecezja"> -->ac
-                  <persName><roleName>decano <orgName ref="Passawa"
+                  <persName><roleName>decano <orgName ref="#Passawa"
                         ><placeName>Pataviensis</placeName></orgName></roleName></persName>
             ecclesiarum <!-- w jaki sposób zaanotować ecclesiarum, które należą do dwóch encji -->
             salutem etc.
             <!-- pytanie jak zaanotować formularz? Czy anotujemy formularz jako taki, czy tylko to co będzie wycięte w ekscerpcie-->
             Vite ac morum honestas aliaque laudabilia probitatis et virtutum merita, super quibus
-            apud nos dilectus filius <persName ref="Michał s. Sołtysa w Nowej Wsi"
+            apud nos dilectus filius <persName ref="#Michał_s._Sołtysa_w_Nowej_Wsi"
                   ><forename>Michael</forename>
                <addName>Sculteti</addName> de <placeName>Novoforo</placeName>, <roleName
-                  ref="proboszcz kościoła w Lindenaw"
+                  ref="#proboszcz_kościoła_w_Lindenaw"
                   ><!-- pytanie gdzie definiujemy typ urzędu? -->rector <orgName>parrochialis
-                     ecclesie in <placeName ref="Linenaw">Lindenaw <orgName type="diecezja"
+                     ecclesie in <placeName ref="#Linenaw">Lindenaw <orgName type="#diecezja" ref="#..."
                            >Wratislaviensis diocesis</orgName></placeName>
                      <!-- czy diecezja jest atrybutem instytucji czy miejscowości? --></orgName></roleName></persName>
             fidedigno commendatur testimonio, nos inducunt, ut sibi reddamur ad graciam liberales.
-            Cum itaque – sicut accepimus – <orgName type="kościół?">
+            Cum itaque – sicut accepimus – <orgName type="kościół?" ref="#...">
                <!-- czy i jakie typy zdefiniujemy w ramach <orgName> ?-->parrochialis ecclesia in
-                  <placeName ref="Berbehartsdorff">Berbehartsdorff</placeName>
+                  <placeName ref="#Berbehartsdorff">Berbehartsdorff</placeName>
                <orgName type="diecezja?">predicte diocesis</orgName></orgName>, quam quondam
                <persName ref="Jan Mensenaw">Iohannes Mensenaw, <roleName>ultimus <orgName
-                     ref="kościół w Berbehartsdorff">ipsius ecclesie
+                     ref="#kościół_w_Berbehartsdorff">ipsius ecclesie
                rector</orgName></roleName></persName>, dum viveret, obtinebat per <persName
-               ref="Jan Mensenaw">ipsius <forename>Iohannis</forename></persName>
+               ref="#Jan_Mensenaw">ipsius <forename>Iohannis</forename></persName>
             <!-- jak to dać do identyfikacji? --> obitum, qui extra <orgName>Romanam
                Curiam</orgName>
             <!-- czy Roman Curia tagujemy? --> diem clausit extremum, vacaverit et vacet ad presens,
@@ -208,7 +208,7 @@
             in parrochiali ecclesia sancte Marie Magdalene Wratislaviensi, quod sine cura est
             noscitur litigare et quod nuper predictam parrochialem ecclesiam in Lyndenaw tunc certo
             modo vacantem, cuius necnon dicti altaris fructus, redditus et provonetus viginti
-            marcharum argenti secundum extimacionem predictam valorem annuum – ut <persName xml:id="Ścibor">ipse Michael</persName>
+            marcharum argenti secundum extimacionem predictam valorem annuum – ut <persName xml:id="#Ścibor">ipse Michael</persName>
             asserit – non excedunt vigore quarundam litterarum nostrarum, per quas beneficium cum
             cura vel sine cura ad collacionem, provisionem, presentancionem seu quamvis aliam
             disposicionem episcopi predicti et dilectorum filiorum prepositi, decani et capituli
