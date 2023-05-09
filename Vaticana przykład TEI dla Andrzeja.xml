@@ -39,7 +39,7 @@
                </msIdentifier>
                <msContents>
                   <!-- to na razie pomińmy, bo to jest troche bardziej skomplikowane. Zostawmy sobie to na drugą iterację, tu będzie wyciaganie regexami z metryczki -->
-                  <msItem class="kopia bulli">
+                  <msItem class="kopia_bulli">
                      <locus scheme="#f.now.">f. 31v-35r</locus>
                      <locus scheme="#f.or.">XXIv-XXXVr</locus>
                      <rubric>De beneficiis vacantibus</rubric>
