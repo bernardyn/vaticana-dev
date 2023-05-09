@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="en">
+      <!-- łacina to xml:lang="la" -->
+      <!-- pytanie w jakim języku mamy pisać metadane? -->
+      <fileDesc>
+         <titleStmt>
+            <title>ASV, Reg. Lat., vol. 31, f. 204v-205v (or. f. CCV-CCVI)- 414</title>
+            <!--pytanie jaki dać tytuł pliku oraz czy robić jakiś system identyfikatorów plików-->
+            <author>Monumenta Vaticana</author>
+            <!-- tutaj pytanie, w jaki sposób zamodelować mapowanie naszych tagów na DC. Użełem atrybutu sameAs, ale być może nie ma takiej potrzeby, ale trzebaby gdzieś w zewnętrznym pliku to zmapować? Jest podrozdział 2.5 Non-TEI Metadata-->
+            <!-- pytanie czy dajemy jako autora zespół, czy pojedyncze osoby. MDK był za zespołem -->
+            <editor>Adam Zapała</editor>
+            <editor>Anna Zajchowska-Bołtromiuk</editor>
+            <principal>Marek Daniel Kowalski</principal>
+            <!-- w tej cześci można też dać kto jest za co odpowiedzialny <respStmt><resp/><name/>-->
+         </titleStmt>
+         <editionStmt>
+            <edition>Wersja cyfrowa tekstu</edition>
+            <respStmt>
+               <resp>odpisane</resp>
+               <name>ADZ</name>
+            </respStmt>
+            <respStmt>
+               <resp>skolacjonowane</resp>
+               <name>MDK</name>
+               <name>AZB</name>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Centrum Studiów Mediewistycznych</publisher>
+            <pubPlace>
+               <placeName>Lublin</placeName>
+            </pubPlace>
+            <date/>
+            <availability status="free">
+               <licence>CC BY-NC-ND </licence>
+               <!-- rodzaj licencji do gruntownego przemyślenia -->
+            </availability>
+         </publicationStmt>
+         <seriesStmt>
+            <title>Monumenta Vaticana res gestes Polonicas Illustrantia</title>
+         </seriesStmt>
+         <!-- jest możliwość zrobienia <notesStmt>, ale w sumie nie wiem po co -->
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <country>Vatican</country>
+                  <settlement>Citta del Vaticano</settlement>
+                  <institution>Archivum Apostolicum Vaticanum</institution>
+                  <collection>Registra Lateranensia</collection>
+                  <idno>31</idno>
+                  <msName>AAV, Reg. Lat., vol. 31</msName>
+               </msIdentifier>
+     
+     
+               <msContents>
+                  <msItem class="kopia bulli">
+                     <!-- warto zrobić taksonomię <classDecl><taxonomy><category><catDecl>, byc może w ogóle osobny plik z taksonomią rodzajów źródel -->
+                     <locus scheme="#f.now.">f. 31v-35r</locus>
+                     <locus scheme="#f.or.">XXIv-XXXVr</locus>
+                     <!-- rodzaj foliacji zdefiniowany w <physDesc><objectDesc><supportDesc><foliation xml:id="original"> lub <foliation xml:id="modern"-->
+                     <rubric>De beneficjum vacantibus</rubric>
+                     <!-- to warto sprawdzić, czy jest poprawnie. Tutaj chodzi o rozdział kodeksu. -->
+                     <bibl type="edycja">Thainer, Vetera Monumenta Poloniae et Lithuaniae gentiumque
+                        finitimarum historiam illustrantia, vol. 1, Roma 1860, nr 199</bibl>
+                     <bibl type="regest">Kuraś, Bullarium Poloniae, vol. 3, nr 115</bibl>
+                     <bibl type="regest">Repertorium Germanicum, vol. 4, nr 1150</bibl>
+                     <!-- edycje można rozpisać bardziej semantycznie tzn. <autor> <tytuł> <wydawca> etc. Nie wiem tylko, czy warto.-->
+                  </msItem>
+               </msContents>
+               <physDesc>
+                  <!-- tutaj mozna zrobić opis rękopisu tzn. wymiary, materiał, liczba stron, język, itd.-->
+                  <objectDesc>
+                     <supportDesc>
+                        <foliation xml:id="f.or."/>
+                        <foliation xml:id="f.now."/>
+                     </supportDesc>
+                  </objectDesc>
+               </physDesc>
+            </msDesc>
+            <listWit>
+               <witness ana="cop."> RL 31 <locus>31r-35v</locus></witness>
+            </listWit>
+
+            <listPerson>
+               <person xml:id="Bonifacy_9">
+                  <persName><name>Bonifacy IX</name>
+                     <roleName>papież</roleName>
+                  </persName>
+               </person>
+               <person xml:id="ep.Monopolitano">
+                  <persName><roleName>episcopo monopolitano</roleName></persName>
+               </person>
+               <person xml:id="prep.s.Egidii_Wrat">
+                  <persName><affiliation>preposito sancti Egidii
+                     Wratislaviensis</affiliation></persName>
+               </person>
+            </listPerson>
+
+         </sourceDesc>
+
+      </fileDesc>
+      <encodingDesc>
+         <unitDecl>
+            <unitDef xml:id="march.arg." type="currency">
+               <label>marca argenti</label>
+            </unitDef>
+            <unitDef xml:id="march.arg.puri" type="currency">
+               <label>marca argenti puri</label>
+            </unitDef>
+         </unitDecl>
+         <!-- może być element <encodingDesc>, który używa się w celu opisania np. różnic między tekstem cyfrowym a tekstem drukowanym. (Guidlines 2.3) Tam też jest 2.3.3. The editorial practices declaration - tutaj możnaby opisać nasze kroki (normalistaion, correction, segmentation etc. Nie wiem czy to potrzebne, ale na pewno warto wziąć pod uwagę-->
+      </encodingDesc>
+      <profileDesc>
+         <abstract sameAs="http:purl.org/dc/terms/abstract">
+            <p>Bonifacy IX poleca biskupowi Monopolitańskiemu, prepozytowi kościoła św. Idziego i
+               dziekanowi katedry w Passau, aby przekazali Michałowi Sculteti z Novoforo,
+               proboszczowi kościoła w Lindau w diecezji wrocławskiej probostwa kościoła
+               parafialnego w Bebehartsdorff w tej samej diecezji, która zawakowała po śmierci extra
+               Curiam Jana Mensenaw, Mikołąj może objąć probostwo pod warunkiem rezygnacji z
+               dotychczas zajmowanej parafii, zachowując jednak altarię świętych Andrzeja i Marii
+               Magdaleny w kościele Marii Magdaleny we Wrocławiu, o którą toczy spór.</p>
+         </abstract>
+         <textClass ana="prowizja"/>
+         <!-- Doczytać na temat sposobu tworzenia klas tekstu Guidlines 2.4.3 . Tutaj może być wręcz "prowizja na beneficjum -->
+         <creation>
+            <date when="1394-02-24">24 februarii 1394</date>
+            <placeName ana="Rzym">Roma</placeName>
+            <!-- tutaj możnaby nawet bardziej dokładnie odesłać do "apud Sanctum Petrum - ale może nie warto?) -->
+         </creation>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <p>
+            <persName ref="#Bonifacy_9">Bonifacius</persName> etc. Venerabili fratri . . <persName
+               ref="#ep.Monopolitano">episcopo Monopolitano</persName> et dilectis filiis
+               <persName>preposito <orgName ref="kapituła św. Idziego we Wrocławiu">sancti Egidii <!-- pytanie jak anotować wezwania kościołów i świeta kościelne -->
+                  <placeName ref="Wrocław">Wratislaviensis</placeName></orgName></persName>
+            <!-- pytanie gdzie będzie informacja o diecezji wrocławskiej i jakim tagiem to opisać np. <orgName type="diecezja"> -->ac
+                  <persName><roleName>decano <orgName ref="Passawa"
+                        ><placeName>Pataviensis</placeName></orgName></roleName></persName>
+            ecclesiarum <!-- w jaki sposób zaanotować ecclesiarum, które należą do dwóch encji -->
+            salutem etc.
+            <!-- pytanie jak zaanotować formularz? Czy anotujemy formularz jako taki, czy tylko to co będzie wycięte w ekscerpcie-->
+            Vite ac morum honestas aliaque laudabilia probitatis et virtutum merita, super quibus
+            apud nos dilectus filius <persName ref="Michał s. Sołtysa w Nowej Wsi"
+                  ><forename>Michael</forename>
+               <addName>Sculteti</addName> de <placeName>Novoforo</placeName>, <roleName
+                  ref="proboszcz kościoła w Lindenaw"
+                  ><!-- pytanie gdzie definiujemy typ urzędu? -->rector <orgName>parrochialis
+                     ecclesie in <placeName ref="Linenaw">Lindenaw <orgName type="diecezja"
+                           >Wratislaviensis diocesis</orgName></placeName>
+                     <!-- czy diecezja jest atrybutem instytucji czy miejscowości? --></orgName></roleName></persName>
+            fidedigno commendatur testimonio, nos inducunt, ut sibi reddamur ad graciam liberales.
+            Cum itaque – sicut accepimus – <orgName type="kościół?">
+               <!-- czy i jakie typy zdefiniujemy w ramach <orgName> ?-->parrochialis ecclesia in
+                  <placeName ref="Berbehartsdorff">Berbehartsdorff</placeName>
+               <orgName type="diecezja?">predicte diocesis</orgName></orgName>, quam quondam
+               <persName ref="Jan Mensenaw">Iohannes Mensenaw, <roleName>ultimus <orgName
+                     ref="kościół w Berbehartsdorff">ipsius ecclesie
+               rector</orgName></roleName></persName>, dum viveret, obtinebat per <persName
+               ref="Jan Mensenaw">ipsius <forename>Iohannis</forename></persName>
+            <!-- jak to dać do identyfikacji? --> obitum, qui extra <orgName>Romanam
+               Curiam</orgName>
+            <!-- czy Roman Curia tagujemy? --> diem clausit extremum, vacaverit et vacet ad presens,
+            nos volentes <persName ref="Michał syn Soltysa">eidem Michaeli</persName>
+            <!--  -->, qui presbiter est, premissorum meritorum suorum intuitu graciam facere
+            specialem, discrecioni vestre per apostolica scripta mandamus, quatenus vos vel duo avit
+            aut unus vestrum per vos vel alium seu alios <!-- znór orgName? -->ecclesiam predictam,
+            cuius fructus, reddtus et proventus <measure type="currency" unitRef="#march.arg.">
+               <!-- do przemyślenia -->quindecim marcharum argenti puri secundum communem
+               extimacionem valorem annuum <!-- pytanie, czy nie tutaj zamknać measure? -->
+            </measure>- ut ipse Michael asserit - non excedunt, sive premisso, sive alio quovismodo
+            vel ex alterius cuiuscumque persona vacet eius si tanto tempore vacaverit, quod eius
+            collacio iuxta Lateranensis statuta concilii ad Sedem Apostolicam legitime devoluta
+            ipsaque ecclesia disposicioni apostolice specialiter reservata existant dictusque
+            Iohannes vel persona huiusmodi predicte Sedis capellanus vel fructuum et proventuum
+            Camere Apostolice debitorum collator vel succolator fuerit dummodo tempore date
+            presencium non sit in ea alicui specialiter ius quesitum cum omnibus iuribus et
+            pertinenciis suis eidem Michaeli auctoritate nostra conferre et assignare curetis,
+            inducentes eundem Michaelem vel procuratorem suum eius nomine in corporalem possessionem
+            ecclesie iuriumque et pertinenciarum predictorum eadem auctoritate et defendentes
+            inductum amoto exinde /f. 205r/ quolibet illicito detentore ac facientes sibi de ipsius
+            ecclesie fructibus, redditibus, proventibus, iuribus et obvencionibus universis integre
+            responderi. Contradictores auctoritate nostra etc. Non obstantibus, si aliqui super
+            provisionibus sibi faciendis de huiusmodi vel aliis beneficiis ecclesiasticis in illis
+            partibus speciales vel generales Apostolice Sedis vel legatorum eius litteras
+            impetrarint, eciam si per eas ad inhibicionem, reservacionem et decretum vel alias
+            quomodolibet sit processum, quibus omnibus prefatum Michaelem in assecucione huiusmodi
+            ecclesie volumus anteferri sed nullum per hoc eis quoad assecucionem beneficiorum
+            aliorum preiudicium generari; seu si venerabili fratri nostro . . episcopo
+            Wratislaviensi vel quibusvis aliis communiter vel divisim ab eadem sit Sede indultum,
+            quod ad recepcionem vel provisionem alicuius minime teneantur et ad id compelli, aut
+            quod interdici, suspendi vel excommunicari non possint, quodque de huiusmodi vel aliis
+            beneficiis ecclesiasticis ad eorum collacionem, provisionem, presentacionem seu quamvis
+            aliam disposicionem coniunctim vel separatim spectantibus, nulli valeat provideri per
+            litteras apostolicas non facientes plenam et expressam ac de verbo ad verbum de indulto
+            huiusmodi mencionem et qualibet alia dicte Sedis indulgencia generali vel speciali
+            cuiuscunque tenoris existat, per quam presentibus non expressam vel totaliter non
+            insertam effectus huiusmodi gracie impediri valeat quomodolibet vel differri et de
+            quacuiusque toto tenore habenda sit in nostris litteris mencio specialis; aut quod idem
+            Michael super summo altari Omnipotentis Dei et sanctorum Andree et Marie Magdalene sito
+            in parrochiali ecclesia sancte Marie Magdalene Wratislaviensi, quod sine cura est
+            noscitur litigare et quod nuper predictam parrochialem ecclesiam in Lyndenaw tunc certo
+            modo vacantem, cuius necnon dicti altaris fructus, redditus et provonetus viginti
+            marcharum argenti secundum extimacionem predictam valorem annuum – ut <persName xml:id="Ścibor">ipse Michael</persName>
+            asserit – non excedunt vigore quarundam litterarum nostrarum, per quas beneficium cum
+            cura vel sine cura ad collacionem, provisionem, presentancionem seu quamvis aliam
+            disposicionem episcopi predicti et dilectorum filiorum prepositi, decani et capituli
+            singularumque personarum /f. 205v/ ecclesie Wratislaviensis communiter vel divisin
+            pertinens expectabat, acceptavit et de ea sibi obtinuit provideri, volumus autem quod
+            quamprimum vigore presencium dictus Michael huiusmodi parrochialem ecclesiam in
+            Gerbehartfdorff fuerit pacifice assecutus eandem parrochialem ecclesiam in Lyndenaw, si
+            eam interim assequatur dimittere alioquin omni iuri sibi in ea seu ad eam quomodolibet
+            competenti omnimodo cedere teneatur et insuper ex nunc irritum decernimus et inane, si
+            secus super hiis a quoquam quavis auctoritate scienter vel ignoranter contigerit
+            attemptari. Datum <placeName>Rome apud Sanctum Petrum</placeName>, <date when="1394-02-24">sexto kalendis marcii, anno quinto</date>. [alia
+            manu:] N(icolaus). XX. de Ben(even)to. </p>
+      </body>
+   </text>
+</TEI>
