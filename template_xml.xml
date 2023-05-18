@@ -1,5 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+        schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI>
-   <teiHeader xml:lang="en"></teiHeader>
-   <body></body>
+   <teiHeader xml:lang="en">
+      <fileDesc>
+         <titleStmt>
+            <title>{id}</title>
+            <author>Monumenta Vaticana</author>
+         </titleStmt>
+         <editionStmt>
+            <edition>Wersja cyfrowa tekstu</edition>
+         </editionStmt>
+         <publicationStmt>
+            <publisher>Centrum Studiów Mediewistycznych</publisher>
+            <pubPlace>
+               <placeName>Lublin</placeName>
+            </pubPlace>
+            <date/>
+            <availability status="free">
+               <licence>CC BY-NC-ND</licence>
+            </availability>
+         </publicationStmt>
+         <seriesStmt>
+            <title>Monumenta Vaticana res gestes Polonicas Illustrantia</title>
+         </seriesStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <msName>{źródło}</msName>
+               </msIdentifier>
+               <msContents>
+                  <msItem>
+                     <bibl type="edycja">{bibl}</bibl>
+                     <bibl type="regest">{bibl}</bibl>
+                     <note>{nota}</note>
+                  </msItem>
+               </msContents>
+            </msDesc>
+            <listPerson>
+               <person/>
+            </listPerson>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <abstract>
+            <p>{abstrakt}</p>
+         </abstract>
+         <textClass/>
+         <creation>
+            <date when="1450-01-01">{date}</date>
+            <placeName ana="Rzym">{place}</placeName>
+         </creation>
+      </profileDesc>
+   </teiHeader>
+   <text>
+      <!-- tutaj trzeba oddać znacznikami nieustandaryzowanymi formatowanie tekstu i takze przypisy. Problem jest taki, że MDK konsekwentnie nie wykorzystywa "stylów", więc trzeba wymyślić, jak wyciągnąć, formatowanie bez stylów (jeśli coś jest kursywą, to w stylach jest to jako tekst normalny - chociaż w formatowaniu jest kursywa, albo pomniejszenie). To jest bardzo ważne. NIE MOŻEMY ZGUBIĆ FORMATOWANIA!!!Tzn. tam gdzie jest kursywa w docx powinien być zaznaczony tag <kursywa>, przypisy można dać w miejscu, gdzie występiuja w tekście w znaczniku <przypis>. Jeśli by się tego nie dało, to można je też dać na końcu, ale wolałbym mieć w miejscu, gdzie występują. -->
+      <body>
+         <div>
+            <p>{content}</p>
+         </div>
+      </body>
+   </text>
 </TEI>
