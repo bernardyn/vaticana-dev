@@ -24,7 +24,7 @@ dateDoc = findElementByXpath(input, '//hi[@rend="<date>_Znak"]')
 abstract = findElementByXpath(input, '//p[@rend="abstract"]')
 
 # xpath output variables
-output_title_xpath = '//seriesStmt/title'
+output_title_xpath = '//titleStmt/title'
 output_placeName_xpath = '//creation/placeName'
 output_abstract_xpath = '//profileDesc/abstract'
 output_date_xpath = '//creation/date'
