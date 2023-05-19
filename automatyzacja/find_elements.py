@@ -1,7 +1,7 @@
 import lxml.etree as ET
 
 # open the input file
-input = ET.parse('nr 1.xml')
+input = ET.parse('1.xml')
 
 # output template
 templateXml = ET.parse('template.xml')
@@ -18,7 +18,7 @@ def insertAtrribut(xpath, newAttrName, newAttrValue):
     templateXml.find(xpath).set(newAttrName, newAttrValue)
 
 # input variables
-idDocument = findElementByXpath(input, '//p[@rend="Title"]')
+idDocument = findElementByXpath(input, '//div/head')
 placeName = findElementByXpath(input, '//hi[@rend="<placeName>_Znak"]')
 dateDoc = findElementByXpath(input, '//hi[@rend="<date>_Znak"]')
 abstract = findElementByXpath(input, '//p[@rend="abstract"]')
