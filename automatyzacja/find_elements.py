@@ -1,3 +1,5 @@
+from io import StringIO
+
 import lxml.etree as ET
 
 # open the input file
@@ -14,17 +16,21 @@ def findElementByXpath(source, xpath):
 def insertText(xpath, newText):
     templateXml.find(xpath).text = newText
 
+def insertElement(xpath, newElement):
+    templateXml.find(xpath).append(newElement)
+
 def insertAtrribut(xpath, newAttrName, newAttrValue):
     templateXml.find(xpath).set(newAttrName, newAttrValue)
 
 def changeYellowToPlaceName(inputPath):
     path = input.find(inputPath)
+    path.attrib.pop("rend", None)
+    path.attrib.pop("style", None)
     for elem in path:
         if(elem.attrib.get('rend')=='background(yellow)'):
             elem.tag = 'placeName'
             elem.attrib.pop("rend", None)
-    # return ET.tostring(path, pretty_print=True, encoding="unicode")
-    return ET.tostring(path, encoding="unicode")
+    return path
 
 # input variables
 idDocument = findElementByXpath(input, '//div/head')
@@ -49,11 +55,11 @@ else:
     print('placeName to nie Roma')
 
 # set abstract
-insertText(output_abstract_xpath, abstract)
+insertElement(output_abstract_xpath, abstract)
 
 # set date
 insertText(output_date_xpath, dateDoc)
 
 
 # printing output
-print(ET.tostring(templateXml, pretty_print=True, encoding="unicode"))
+print(ET.tostring(templateXml, pretty_print=1, encoding="unicode"))
