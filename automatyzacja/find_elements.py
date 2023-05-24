@@ -17,11 +17,20 @@ def insertText(xpath, newText):
 def insertAtrribut(xpath, newAttrName, newAttrValue):
     templateXml.find(xpath).set(newAttrName, newAttrValue)
 
+def changeYellowToPlaceName(inputPath):
+    path = input.find(inputPath)
+    for elem in path:
+        if(elem.attrib.get('rend')=='background(yellow)'):
+            elem.tag = 'placeName'
+            elem.attrib.pop("rend", None)
+    # return ET.tostring(path, pretty_print=True, encoding="unicode")
+    return ET.tostring(path, encoding="unicode")
+
 # input variables
 idDocument = findElementByXpath(input, '//div/head')
 placeName = findElementByXpath(input, '//hi[@rend="<placeName>_Znak"]')
 dateDoc = findElementByXpath(input, '//hi[@rend="<date>_Znak"]')
-abstract = findElementByXpath(input, '//p[@rend="abstract"]')
+abstract = changeYellowToPlaceName('//p[@rend="abstract"]')
 
 # xpath output variables
 output_title_xpath = '//titleStmt/title'
