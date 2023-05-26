@@ -3,7 +3,7 @@ from io import StringIO
 import lxml.etree as ET
 
 # open the input file
-input = ET.parse('1.xml')
+input = ET.parse('nr 1378053001.xml')
 
 # output template
 templateXml = ET.parse('template.xml')
@@ -37,12 +37,13 @@ idDocument = findElementByXpath(input, '//div/head')
 placeName = findElementByXpath(input, '//hi[@rend="<placeName>_Znak"]')
 dateDoc = findElementByXpath(input, '//hi[@rend="<date>_Znak"]')
 abstract = changeYellowToPlaceName('//p[@rend="abstract"]')
+nota = findElementByXpath(input, '//hi[@rend="nota_Znak"]')
 
 # xpath output variables
 output_title_xpath = '//titleStmt/title'
 output_placeName_xpath = '//creation/placeName'
 output_abstract_xpath = '//profileDesc/abstract'
-output_date_xpath = '//creation/date'
+output_date_xpath = '//msItem/note'
 
 # set title
 insertText(output_title_xpath, idDocument)
@@ -60,6 +61,8 @@ insertElement(output_abstract_xpath, abstract)
 # set date
 insertText(output_date_xpath, dateDoc)
 
+# set nota
+insertText(output_date_xpath, nota)
 
 # printing output
 print(ET.tostring(templateXml, pretty_print=1, encoding="unicode"))
