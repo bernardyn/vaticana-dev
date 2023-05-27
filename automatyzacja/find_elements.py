@@ -38,12 +38,14 @@ placeName = findElementByXpath(input, '//hi[@rend="<placeName>_Znak"]')
 dateDoc = findElementByXpath(input, '//hi[@rend="<date>_Znak"]')
 abstract = changeYellowToPlaceName('//p[@rend="abstract"]')
 nota = findElementByXpath(input, '//hi[@rend="nota_Znak"]')
+zrodlo = findElementByXpath(input, '//hi[@rend="Źródło_Znak"]')
 
 # xpath output variables
 output_title_xpath = '//titleStmt/title'
 output_placeName_xpath = '//creation/placeName'
 output_abstract_xpath = '//profileDesc/abstract'
 output_date_xpath = '//msItem/note'
+output_zrodlo_xpath = '//msIdentifier/msName'
 
 # set title
 insertText(output_title_xpath, idDocument)
@@ -54,6 +56,14 @@ if(placeName == 'Roma'):
     insertAtrribut(output_placeName_xpath, 'ana', 'Rzym')
 else:
     print('placeName to nie Roma')
+
+# set źródło
+insertText(output_zrodlo_xpath, zrodlo)
+sourceCheck = zrodlo.find('or.')
+if('or.' in zrodlo):
+    insertAtrribut(output_zrodlo_xpath, 'type', 'oryginał')
+if('cop.' in zrodlo):
+    insertAtrribut(output_zrodlo_xpath, 'type', 'kopia')
 
 # set abstract
 insertElement(output_abstract_xpath, abstract)
