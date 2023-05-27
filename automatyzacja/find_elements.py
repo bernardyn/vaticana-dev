@@ -50,7 +50,7 @@ output_title = '//titleStmt/title'
 output_placeName = '//creation/placeName'
 output_dateDoc = '//creation/date'
 output_abstract = '//profileDesc/abstract'
-output_nota = '//msContents/msItem'
+output_nota = '//msItem/note'
 output_zrodlo = '//msIdentifier/msName'
 output_bibl = '//msContents/msItem'
 
@@ -88,6 +88,9 @@ if(';' in bibl):
         else:
             newElem = createElement('bibl', 'type', 'none', elem)
             insertElement(output_bibl, newElem)
+else:
+    newElem = createElement('bibl', 'type', 'none', bibl)
+    insertElement(output_bibl, newElem)
 
 # set date
 insertText(output_dateDoc, dateDoc)
