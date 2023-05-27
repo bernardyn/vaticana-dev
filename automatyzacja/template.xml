@@ -46,7 +46,7 @@
          </abstract>
          <textClass/>
          <creation>
-            <date when="1450-01-01">{date}</date>
+            <date>{date}</date>
             <placeName>{place}</placeName>
          </creation>
       </profileDesc>

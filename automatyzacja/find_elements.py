@@ -3,7 +3,7 @@ from io import StringIO
 import lxml.etree as ET
 
 # open the input file
-input = ET.parse('nr 1397040101.xml')
+input = ET.parse('nr 1378053001.xml')
 
 # output template
 templateXml = ET.parse('template.xml')
@@ -37,7 +37,7 @@ def changeYellowToPlaceName(inputPath):
     return path
 
 # input variables
-idDocument = findElementByXpath(input, '//div/head')
+title = findElementByXpath(input, '//div/head')
 placeName = findElementByXpath(input, '//hi[@rend="<placeName>_Znak"]')
 dateDoc = findElementByXpath(input, '//hi[@rend="<date>_Znak"]')
 abstract = changeYellowToPlaceName('//p[@rend="abstract"]')
@@ -46,33 +46,34 @@ zrodlo = findElementByXpath(input, '//hi[@rend="Źródło_Znak"]')
 bibl = findElementByXpath(input, '//p[@rend="bibl"]')
 
 # xpath output variables
-output_title_xpath = '//titleStmt/title'
-output_placeName_xpath = '//creation/placeName'
-output_abstract_xpath = '//profileDesc/abstract'
-output_date_xpath = '//msItem/note'
-output_zrodlo_xpath = '//msIdentifier/msName'
-output_bibl_xpath = '//msContents/msItem'
+output_title = '//titleStmt/title'
+output_placeName = '//creation/placeName'
+output_dateDoc = '//creation/date'
+output_abstract = '//profileDesc/abstract'
+output_nota = '//msContents/msItem'
+output_zrodlo = '//msIdentifier/msName'
+output_bibl = '//msContents/msItem'
 
 # set title
-insertText(output_title_xpath, idDocument)
+insertText(output_title, title)
 
 # set place name
-insertText(output_placeName_xpath, placeName)
+insertText(output_placeName, placeName)
 if(placeName == 'Roma'):
-    insertAtrribut(output_placeName_xpath, 'ana', 'Rzym')
+    insertAtrribut(output_placeName, 'ana', 'Rzym')
 else:
     print('placeName to nie Roma')
 
 # set źródło
-insertText(output_zrodlo_xpath, zrodlo)
+insertText(output_zrodlo, zrodlo)
 sourceCheck = zrodlo.find('or.')
 if('or.' in zrodlo):
-    insertAtrribut(output_zrodlo_xpath, 'type', 'oryginał')
+    insertAtrribut(output_zrodlo, 'type', 'oryginał')
 if('cop.' in zrodlo):
-    insertAtrribut(output_zrodlo_xpath, 'type', 'kopia')
+    insertAtrribut(output_zrodlo, 'type', 'kopia')
 
 # set abstract
-insertElement(output_abstract_xpath, abstract)
+insertElement(output_abstract, abstract)
 
 # set bibl
 if(';' in bibl):
@@ -80,19 +81,19 @@ if(';' in bibl):
     for elem in splittedBibl:
         if('reg.' in elem):
             newElem = createElement('bibl', 'type', 'regest', elem)
-            insertElement(output_bibl_xpath, newElem)
+            insertElement(output_bibl, newElem)
         elif('ed.' in elem):
             newElem = createElement('bibl', 'type', 'edycja', elem)
-            insertElement(output_bibl_xpath, newElem)
+            insertElement(output_bibl, newElem)
         else:
             newElem = createElement('bibl', 'type', 'none', elem)
-            insertElement(output_bibl_xpath, newElem)
+            insertElement(output_bibl, newElem)
 
 # set date
-insertText(output_date_xpath, dateDoc)
+insertText(output_dateDoc, dateDoc)
 
 # set nota
-insertText(output_date_xpath, nota)
+insertText(output_nota, nota)
 
 # printing output
 print(ET.tostring(templateXml, pretty_print=1, encoding="unicode"))
