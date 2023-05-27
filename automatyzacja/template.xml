@@ -32,8 +32,6 @@
                </msIdentifier>
                <msContents>
                   <msItem>
-                     <bibl type="edycja">{bibl}</bibl>
-                     <bibl type="regest">{bibl}</bibl>
                      <note>{nota}</note>
                   </msItem>
                </msContents>
