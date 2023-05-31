@@ -23,7 +23,7 @@ def insertText(xpath, newText):
     templateXml.find(xpath).text = newText
 
 def createElement(tag, attrib, attribValue, value):
-    newValue = ET.XML(f'<{tag}>{attrib}="{attribValue}"{value}</{tag}>')
+    newValue = ET.XML(f'<{tag} {attrib}="{attribValue}">{value}</{tag}>')
     return newValue
 
 def insertElement(xpath, newElement):
