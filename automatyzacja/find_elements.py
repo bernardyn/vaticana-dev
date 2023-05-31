@@ -53,6 +53,7 @@ abstract = changeYellowToPlaceName('//p[@rend="abstract"]')
 nota = findElementByXpath(input, '//hi[@rend="nota_Znak"]')
 zrodlo = findElementByXpath(input, '//hi[@rend="Źródło_Znak"]')
 bibl = findElementByXpath(input, '//p[@rend="bibl"]')
+content = findElementByXpath(input, '//p[@rend="content"]')
 
 # xpath output variables
 output_title = '//titleStmt/title'
@@ -62,6 +63,7 @@ output_abstract = '//profileDesc/abstract'
 output_nota = '//msItem/note'
 output_zrodlo = '//msIdentifier/msName'
 output_bibl = '//msContents/msItem'
+output_content = '//body/div/p'
 
 # set title
 insertText(output_title, title)
@@ -106,6 +108,9 @@ insertText(output_dateDoc, dateDoc)
 
 # set nota
 insertText(output_nota, nota)
+
+# set content
+insertText(output_content, content)
 
 # printing output
 print(ET.tostring(templateXml, pretty_print=1, encoding="unicode"))
