@@ -1,7 +1,8 @@
 import lxml.etree as ET
 
 # open the input file
-input = ET.parse('pliki/nr 1378053001.xml')
+inputFileName = 'nr 1378053001'
+input = ET.parse('pliki/'+inputFileName+'.xml')
 
 # output template
 templateXml = ET.parse('template.xml')
@@ -113,4 +114,8 @@ insertText(output_nota, nota)
 insertText(output_content, content)
 
 # printing output
-print(ET.tostring(templateXml, pretty_print=1, encoding="unicode"))
+# print(ET.tostring(templateXml, pretty_print=1, encoding="unicode"))
+
+# write to file
+outputFileName = inputFileName+'-out.xml'
+templateXml.write(outputFileName, encoding="utf-8")
