@@ -1,7 +1,7 @@
 import lxml.etree as ET
 
 # open the input file
-inputFileName = 'nr 1378053001'
+inputFileName = '1'
 input = ET.parse('pliki/'+inputFileName+'.xml')
 
 # output template
@@ -17,7 +17,11 @@ def remove_namespace(doc, namespace):
 
 # element finding by xpath
 def findElementByXpath(source, xpath):
-    return source.find(xpath).xpath("string()")
+    try:
+        element = source.find(xpath).xpath("string()")
+    except:
+        element = 'error_not_found'
+    return element
 
 # find and change text in output file
 def insertText(xpath, newText):
@@ -52,7 +56,7 @@ placeName = findElementByXpath(input, '//hi[@rend="<placeName>_Znak"]')
 dateDoc = findElementByXpath(input, '//hi[@rend="<date>_Znak"]')
 abstract = changeYellowToPlaceName('//p[@rend="abstract"]')
 nota = findElementByXpath(input, '//hi[@rend="nota_Znak"]')
-zrodlo = findElementByXpath(input, '//hi[@rend="Źródło_Znak"]')
+zrodlo = findElementByXpath(input, '//p[@rend="Źródło"]')
 bibl = findElementByXpath(input, '//p[@rend="bibl"]')
 content = findElementByXpath(input, '//p[@rend="content"]')
 
