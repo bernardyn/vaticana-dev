@@ -1,7 +1,7 @@
 import lxml.etree as ET
 
 # open the input file
-input = ET.parse('nr 1378053001.xml')
+input = ET.parse('pliki/nr 1378053001.xml')
 
 # output template
 templateXml = ET.parse('template.xml')
