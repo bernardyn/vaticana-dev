@@ -1,5 +1,3 @@
-from io import StringIO
-
 import lxml.etree as ET
 
 # open the input file
@@ -7,6 +5,14 @@ input = ET.parse('nr 1378053001.xml')
 
 # output template
 templateXml = ET.parse('template.xml')
+
+#remove namespace http://www.tei-c.org/ns/1.0
+def remove_namespace(doc, namespace):
+    ns = u'{%s}' % namespace
+    nsl = len(ns)
+    for elem in doc.getiterator():
+        if elem.tag.startswith(ns):
+            elem.tag = elem.tag[nsl:]
 
 # element finding by xpath
 def findElementByXpath(source, xpath):
@@ -35,6 +41,9 @@ def changeYellowToPlaceName(inputPath):
             elem.tag = 'placeName'
             elem.attrib.pop("rend", None)
     return path
+
+# remove namespace
+remove_namespace(input, u'http://www.tei-c.org/ns/1.0')
 
 # input variables
 title = findElementByXpath(input, '//div/head')
